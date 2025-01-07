@@ -8,19 +8,19 @@ public class Cadastro_produto {
 
     private String nome;
     private String empresa;
-    private int Serie;
-    private int Data;
-    private int Fabricacao;
-    private int Vencimento;
+    private String Serie;
 
 
 
-    public Cadastro_produto(String nome, String empresa, int Serie){
+    private Data_do_calendario validade;
+
+
+    public Cadastro_produto(String nome, String empresa, String Serie,Data_do_calendario data){
 
     this.nome=nome;
     this.empresa=empresa;
     this.Serie=Serie;
-
+    this.validade=data;
     }
     public String getNome() {
         return nome;
@@ -30,8 +30,10 @@ public class Cadastro_produto {
         return empresa;
     }
 
-    public int getSerie() {
+    public String getSerie() {
         return Serie;
     }
-
+    public Data_do_calendario getValidade() {
+        return validade;
+    }
 }

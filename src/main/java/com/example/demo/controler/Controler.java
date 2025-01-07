@@ -13,6 +13,7 @@ public class Controler {
 
     @GetMapping("/")
     public Cadastro_produto cadastro() {
-        return new Cadastro_produto("maça", "apple", 121234);
+        Data_do_calendario data = new Data_do_calendario(01,02,2022);
+        return new Cadastro_produto("maça", "apple", "12a12334d",data);
     }
 }
