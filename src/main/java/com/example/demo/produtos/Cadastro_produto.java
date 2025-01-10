@@ -1,7 +1,8 @@
 package com.example.demo.produtos;
 
-import javax.xml.crypto.Data;
+import org.springframework.stereotype.Service;
 
+@Service
 public class Cadastro_produto {
 
     // classe para o cadastro de produtos //
@@ -9,18 +10,17 @@ public class Cadastro_produto {
     private String nome;
     private String empresa;
     private String Serie;
+    Data_do_calendario data = new Data_do_calendario(29,02,2025);
 
-
-
-    private Data_do_calendario validade;
-
-
-    public Cadastro_produto(String nome, String empresa, String Serie,Data_do_calendario data){
+    public void cadastrar(String nome, String empresa, String Serie){
 
     this.nome=nome;
     this.empresa=empresa;
     this.Serie=Serie;
-    this.validade=data;
+
+    }
+    public  Cadastro_produto(){
+        cadastrar("smarthphone","apple","1231wse");
     }
     public String getNome() {
         return nome;
@@ -33,7 +33,6 @@ public class Cadastro_produto {
     public String getSerie() {
         return Serie;
     }
-    public Data_do_calendario getValidade() {
-        return validade;
+
     }
-}
+
