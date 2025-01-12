@@ -10,17 +10,20 @@ public class Cadastro_produto {
     private String nome;
     private String empresa;
     private String Serie;
+
+
+
     Data_do_calendario data = new Data_do_calendario(29,02,2025);
 
-    public void cadastrar(String nome, String empresa, String Serie){
+    public void cadastrar(String nome, String empresa, String Serie, Data_do_calendario data){
 
     this.nome=nome;
     this.empresa=empresa;
     this.Serie=Serie;
-
+    this.data=data;
     }
     public  Cadastro_produto(){
-        cadastrar("smarthphone","apple","1231wse");
+        cadastrar("smarthphone","apple","1231wse",data);
     }
     public String getNome() {
         return nome;
@@ -33,6 +36,8 @@ public class Cadastro_produto {
     public String getSerie() {
         return Serie;
     }
-
+    public Data_do_calendario getData() {
+        return data;
+    }
     }
 
