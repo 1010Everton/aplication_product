@@ -1,12 +1,14 @@
 package com.example.demo.Usuario;
 
 import com.example.demo.Acesso_Ao_Banco.Verifica;
+import org.springframework.stereotype.Service;
 
+@Service
 public class Login {
     private String login;
     private String senha;
     Verifica verifier = new Verifica();
-    public Login(String login, String senha) {
+    public void Login_usuario(String login, String senha) {
         this.login = login;
         this.senha = senha;
 
@@ -18,13 +20,13 @@ public class Login {
         }
 
     }
+    public Login(){
+        Login_usuario("everton","123");
 
-
-    public String getLogin() {
-        return login;
     }
 
-    public String getSenha() {
-        return senha;
-    }
+
+    public String getLogin() { return login; }
+
+    public String getSenha() { return senha; }
 }
