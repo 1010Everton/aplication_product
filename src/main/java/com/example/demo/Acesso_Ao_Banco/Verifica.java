@@ -12,16 +12,16 @@ import java.sql.ResultSet;
 public class Verifica{
 
     @Value("${spring.datasource.url}")
-    private String url;
+    public String url;
 
     @Value("${spring.datasource.username}")
-    private String username;
+    public String username;
 
     @Value("${spring.datasource.password}")
-    private String password;
+    public String password;
 
     public boolean checkLogin(String login, String senha) {
-        String query = "SELECT * FROM usuarios WHERE login = ? AND senha = ?";
+        String query = "SELECT * FROM users WHERE login = ? AND senha = ?";
 
         try (Connection conn = DriverManager.getConnection(url, username, password);
              PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -37,3 +37,4 @@ public class Verifica{
         }
     }
 }
+
