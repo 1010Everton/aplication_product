@@ -1,7 +1,7 @@
 package com.example.demo.controler;
 
 
-import com.example.demo.Usuario.Login;
+
 import com.example.demo.produtos.Cadastro_produto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,14 +12,10 @@ public class Controler {
     @Autowired
     private Cadastro_produto cadastro;
 
-    @Autowired
-    private Login Login;
+
     @GetMapping("/Cadastro")
     public Cadastro_produto cadastro() {
         return cadastro;
     }
-    @GetMapping("/")
-    public Login Login(){
-        return Login;
-    }
+
 }
