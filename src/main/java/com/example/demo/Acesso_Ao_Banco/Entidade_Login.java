@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "usuarios")
-public class Entidade{
+public class Entidade_Login {
 
 
     @Id
@@ -17,11 +17,11 @@ public class Entidade{
     private String login;
     private String senha;
 
-    public Entidade(String login, String senha) {
+    public Entidade_Login(String login, String senha) {
         this.login = login;
         this.senha = senha;
     }
-    public Entidade(){}
+    public Entidade_Login(){}
     public Long getId() {
         return id;
     }

@@ -7,24 +7,34 @@ public class Cadastro_produto {
 
     // classe para o cadastro de produtos //
 
+
+
     private String nome;
     private String empresa;
     private String Serie;
 
+    public  Cadastro_produto(){
+        cadastrar("smarthphone","apple","1231wse");
+    }
 
-
-    Data_do_calendario data = new Data_do_calendario(29,02,2025);
-
-    public void cadastrar(String nome, String empresa, String Serie, Data_do_calendario data){
+    public void cadastrar(String nome, String empresa, String Serie){
 
     this.nome=nome;
     this.empresa=empresa;
     this.Serie=Serie;
-    this.data=data;
     }
-    public  Cadastro_produto(){
-        cadastrar("smarthphone","apple","1231wse",data);
+    public void setNome(String nome) {
+        this.nome = nome;
     }
+
+    public void setEmpresa(String empresa) {
+        this.empresa = empresa;
+    }
+
+    public void setSerie(String serie) {
+        Serie = serie;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -36,8 +46,6 @@ public class Cadastro_produto {
     public String getSerie() {
         return Serie;
     }
-    public Data_do_calendario getData() {
-        return data;
-    }
+
     }
 
