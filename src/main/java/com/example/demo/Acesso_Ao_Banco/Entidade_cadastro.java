@@ -17,7 +17,6 @@ public class Entidade_cadastro {
         this.nome = nome;
         this.empresa = empresa;
         Serie = serie;
-        this.data = data;
     }
 
     public String getNome() {
@@ -42,14 +41,6 @@ public class Entidade_cadastro {
 
     public void setSerie(String serie) {
         Serie = serie;
-    }
-
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
     }
 
 }
