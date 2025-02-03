@@ -8,7 +8,7 @@
   <artifactId>Interface_Visual</artifactId>
   <version>1.0-SNAPSHOT</version>
   <name>Interface_Visual</name>
-
+  <packaging>jar</packaging>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 <junit.version>5.9.2</junit.version>  </properties>
@@ -52,6 +52,18 @@
         <groupId>org.openjfx</groupId>
         <artifactId>javafx-maven-plugin</artifactId>
         <version>0.0.8</version>
+      </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <configuration>
+              <archive>
+                <manifest>
+                  <mainClass>com.example.interface_visual.HelloApplication</mainClass>
+                </manifest>
+              </archive>
+            </configuration>
+
         <executions>
           <execution>
             <!-- Default configuration for running with: mvn clean javafx:run -->

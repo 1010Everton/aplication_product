@@ -16,10 +16,16 @@ public class HelloApplication extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/PainelGrafico.fxml"));
         Parent root = loader.load();
 
+        String cssPath = getClass().getResource("/Style/Estilo.css").toExternalForm(); // Path relative to resources root
+
         Scene scene = new Scene(root);
+        scene.getStylesheets().add(cssPath);
         stage.setScene(scene);
         stage.show();
+
     }
+
+
 
     public static void main(String[] args) {
         launch();

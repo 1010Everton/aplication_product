@@ -55,6 +55,13 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>com.example</groupId>
+			<artifactId>Interface_Visual</artifactId>
+			<version>1.0-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/libs/Interface_Visual-1.0-SNAPSHOT.jar</systemPath>
+		</dependency>
+		<dependency>
 			<groupId>com.mysql</groupId>
 			<artifactId>mysql-connector-j</artifactId>
 			<version>9.1.0</version>
