@@ -9,10 +9,12 @@ import com.example.demo.Acesso_Ao_Banco.Repositorio_Cadastro;
 import com.example.demo.produtos.Cadastro_produto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/produto")
 public class Controler_cadastro {
     @Autowired
     Repositorio_Cadastro rep;
@@ -21,8 +23,8 @@ public class Controler_cadastro {
     public Entidade_cadastro cadastro(@RequestParam String nome, @RequestParam String empresa, @RequestParam String serie){
         Entidade_cadastro ent = new Entidade_cadastro(nome, empresa, serie);
         ent.setNome(nome);
-        ent.setEmpresa(nome);
-        ent.setSerie(nome);
+        ent.setEmpresa(empresa);
+        ent.setSerie(serie);
         return rep.save(ent);
     }
 
