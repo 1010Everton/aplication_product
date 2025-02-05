@@ -92,17 +92,10 @@
 			<artifactId>spring-boot-test</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.example.demo</groupId>
-			<artifactId>Interface_Visual</artifactId>
-			<version>1.0-SNAPSHOT</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/main/resources/libs/Interface_Visual-1.0-SNAPSHOT.jar</systemPath>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-instrument</artifactId>
-			<version>6.2.0</version>
-		</dependency>
+
 	</dependencies>
 
 	<build>

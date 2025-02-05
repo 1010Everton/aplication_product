@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Minha Página Web</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1 th:text="${mensagem}">Texto padrão</h1>
+<p>Esta é uma página web criada com Spring Boot!</p>
+<button onclick="mostrarAlerta()">Clique aqui</button>
+
+<script src="/script.js"></script>
+</body>
+</html>
