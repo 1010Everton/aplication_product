@@ -9,20 +9,20 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/inserir")
+@RequestMapping("/verificar")
 public class Controlador_Login {
     @Autowired
     Repositorio rep;
     @PostMapping
-    public ResponseEntity<String> inserirUsuario(@RequestBody Entidade_Login usuario) {
-        rep.save(usuario);
-        return ResponseEntity.ok("{\"message\": \"Usuário cadastrado com sucesso!\"}");
-    }
-    @GetMapping("{login}/{senha}")
-    public ResponseEntity<Entidade_Login> buscarUsuario(@PathVariable String login, @PathVariable String senha) {
-        Optional<Entidade_Login> usuario = rep.findByLoginAndSenha(login, senha);
-        return usuario.map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
+    public ResponseEntity<String> autenticarUsuario(@RequestBody LoginDTO loginDTO) {
+        Optional<Entidade_Login> usuario = rep.findByLoginAndSenha(loginDTO.getLogin(), loginDTO.getSenha());
+
+        if (usuario.isPresent()) {
+            // Aqui você pode adicionar lógica adicional para autenticar o usuário, como gerar um token de sessão
+            return ResponseEntity.ok("{\"message\": \"Login bem-sucedido!\"}");
+        } else {
+            return ResponseEntity.status(401).body("{\"message\": \"Login ou senha incorretos.\"}");
+        }
     }
 
 }

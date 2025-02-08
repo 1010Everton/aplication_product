@@ -11,7 +11,10 @@
         <input type="text" id="login" name="username" placeholder="Usuário" required>
         <input type="password" id="senha" name="password" placeholder="Senha" required>
         <button type="submit">Cadastrar</button>
+    </form>>
 </div>
+
+
     <script>
         document.getElementById("registerForm").addEventListener("submit", async function(event) {
             event.preventDefault(); // Evita o recarregamento da página
@@ -20,12 +23,12 @@
             const password = document.getElementById("senha").value;
 
             try {
-                const response = await fetch("http://localhost:8080/inserir", {
-                    method: "POST",
+                const response = await fetch("http://localhost:8080/verificar", {
+                    method: "POST", // Método POST para autenticação
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    body: JSON.stringify({ login: username, senha: password }) // Envia os dados corretos
+                    body: JSON.stringify({ login: username, senha: password }) // Envia os dados de login
                 });
 
                 if (!response.ok) {
