@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Login</title>
+
+    <div class="login-container">
+    <h2>Login</h2>
+    <form id="registerForm">
+        <input type="text" id="login" name="username" placeholder="Usuário" required>
+        <input type="password" id="senha" name="password" placeholder="Senha" required>
+        <input type="Date" id="DataNc" name="DataNc" placeholder="DataNc" required>
+        <input type="text" id="cpf" name="cpf" placeholder="cpf" required>
+        <button type="submit">Cadastrar</button>
+    </form>>
+</div>
+    <script>
+        document.getElementById("registerForm").addEventListener("submit", async function(event) {
+            event.preventDefault(); // Evita o recarregamento da página
+
+            const username = document.getElementById("login").value;
+            const password = document.getElementById("senha").value;
+
+            try {
+                const response = await fetch("http://localhost:8080/inserir", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ login: username, senha: password }) // Envia os dados corretos
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json(); // Tenta obter a mensagem de erro do servidor
+                    throw new Error(errorData.message || `Erro ${response.status}`); // Lança o erro com a mensagem do servidor ou um genérico
+                }
+
+                const data = await response.json();
+                alert(data.message); // Exibe a resposta do servidor (sucesso)
+
+            } catch (error) {
+                console.error("Erro na requisição:", error);
+                alert("Ocorreu um erro durante o login: " + error.message); // Exibe mensagem de erro para o usuário
+            }
+        });
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+        }
+
+        .login-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background: #2575fc;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .login-container button:hover {
+            background: #1a5bbf;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>
