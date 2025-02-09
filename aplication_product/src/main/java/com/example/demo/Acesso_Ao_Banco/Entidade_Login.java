@@ -16,12 +16,6 @@ public class Entidade_Login {
     private long id;
     private String login;
     private String senha;
-
-    public Entidade_Login(String login, String senha) {
-        this.login = login;
-        this.senha = senha;
-    }
-    public Entidade_Login(){}
     public Long getId() {
         return id;
     }

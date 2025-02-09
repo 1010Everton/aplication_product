@@ -7,11 +7,9 @@ import com.example.demo.Acesso_Ao_Banco.Entidade_cadastro;
 import com.example.demo.Acesso_Ao_Banco.Repositorio;
 import com.example.demo.Acesso_Ao_Banco.Repositorio_Cadastro;
 import com.example.demo.produtos.Cadastro_produto;
+import com.example.demo.produtos.Data_do_calendario;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/produto")
@@ -19,13 +17,9 @@ public class Controler_cadastro {
     @Autowired
     Repositorio_Cadastro rep;
 
-    @PostMapping("/Cadastro")
-    public Entidade_cadastro cadastro(@RequestParam String nome, @RequestParam String empresa, @RequestParam String serie){
-        Entidade_cadastro ent = new Entidade_cadastro(nome, empresa, serie);
-        ent.setNome(nome);
-        ent.setEmpresa(empresa);
-        ent.setSerie(serie);
-        return rep.save(ent);
+    @PostMapping("/inserir")
+    public Entidade_cadastro cadastro(@RequestBody Entidade_cadastro cadastro){
+        return rep.save(cadastro);
     }
 
     }
