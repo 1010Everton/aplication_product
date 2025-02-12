@@ -25,7 +25,7 @@
             const serie = document.getElementById("serie").value;
 
             try {
-                const response = await fetch("http://localhost:8080/inserir", {
+                const response = await fetch("http://localhost:8080/produto/inserir", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"

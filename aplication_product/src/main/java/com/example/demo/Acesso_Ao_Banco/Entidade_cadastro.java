@@ -8,6 +8,8 @@ import jakarta.persistence.*;
 @Table(name="produto")
 public class Entidade_cadastro {
 
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -45,5 +47,7 @@ public class Entidade_cadastro {
 
     public void setData(Data_do_calendario data) {
         this.data = data;
+    } public long getId() {
+        return id;
     }
 }

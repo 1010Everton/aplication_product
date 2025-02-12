@@ -17,6 +17,6 @@ public class ControlardorDaPagina {
     @GetMapping("/acessado")
     public String pagina(Model model) {
         model.addAttribute("mensagem", "Bem-vindo ao meu site!");
-        return "cadastro_suario"; // Vai buscar o arquivo index.html em templates
+        return "cadastro_produto"; // Vai buscar o arquivo index.html em templates
     }
 }
