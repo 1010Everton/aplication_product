@@ -3,9 +3,12 @@ package com.example.demo.controler;
 import com.example.demo.Acesso_Ao_Banco.Entidade_Login;
 import com.example.demo.Acesso_Ao_Banco.Repositorio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -25,14 +28,23 @@ public class Controlador_Login {
         }
     }
     @PutMapping
-    public String alterar(@RequestBody Entidade_Login login) {
+    public ResponseEntity<Map<String, String>> alterar(@RequestBody Entidade_Login login) {
+        Map<String, String> response = new HashMap<>();
         try {
-            // Tente salvar a entidade
-            rep.save(login);
-            return "Alteração feita com sucesso";
+            Optional<Entidade_Login> usuarioExistente = rep.findById(login.getId());
+
+            if (usuarioExistente.isPresent()) {
+                rep.save(login);
+                response.put("message", "Alteração feita com sucesso");
+            } else {
+                response.put("message", "Usuário não encontrado");
+            }
+
+            return ResponseEntity.ok(response);
         } catch (Exception e) {
             // Capture qualquer exceção e retorne uma mensagem de erro
-            return "Algo deu errado: " + e.getMessage();
+            response.put("message", "Algo deu errado: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }
 }

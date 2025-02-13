@@ -19,4 +19,9 @@ public class ControlardorDaPagina {
         model.addAttribute("mensagem", "Bem-vindo ao meu site!");
         return "cadastro_produto"; // Vai buscar o arquivo index.html em templates
     }
+    @GetMapping("/alterar")
+    public String alterar(Model model) {
+        model.addAttribute("mensagem", "Bem-vindo ao meu site!");
+        return "alterar"; // Vai buscar o arquivo index.html em templates
+    }
 }

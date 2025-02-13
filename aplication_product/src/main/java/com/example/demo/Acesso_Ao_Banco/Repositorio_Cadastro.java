@@ -5,6 +5,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface Repositorio_Cadastro extends JpaRepository<Entidade_cadastro, Long> {
-
-
 }

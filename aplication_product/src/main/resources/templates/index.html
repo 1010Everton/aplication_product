@@ -11,13 +11,14 @@
         <input type="text" id="login" name="username" placeholder="Usuário" required>
         <input type="password" id="senha" name="password" placeholder="Senha" required>
         <button type="submit">Cadastrar</button>
-    </form>>
+    </form>
 </div>
 
 
     <script>
         document.getElementById("registerForm").addEventListener("submit", async function(event) {
             event.preventDefault(); // Evita o recarregamento da página
+
 
             const username = document.getElementById("login").value;
             const password = document.getElementById("senha").value;
