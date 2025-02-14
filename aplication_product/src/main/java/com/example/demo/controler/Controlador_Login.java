@@ -47,4 +47,24 @@ public class Controlador_Login {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }
+    @DeleteMapping
+    public ResponseEntity<Map<String, String>> Deletar(@RequestBody Entidade_Login login) {
+        Map<String, String> response = new HashMap<>();
+        try {
+            Optional<Entidade_Login> usuarioExistente = rep.findById(login.getId());
+
+            if (usuarioExistente.isPresent()) {
+                rep.delete(usuarioExistente.get());
+                response.put("message", "Alteração feita com sucesso");
+            } else {
+                response.put("message", "Usuário não encontrado");
+            }
+
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            // Capture qualquer exceção e retorne uma mensagem de erro
+            response.put("message", "Algo deu errado: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+        }
+    }
 }

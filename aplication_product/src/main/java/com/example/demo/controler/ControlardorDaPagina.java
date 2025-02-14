@@ -24,4 +24,9 @@ public class ControlardorDaPagina {
         model.addAttribute("mensagem", "Bem-vindo ao meu site!");
         return "alterar"; // Vai buscar o arquivo index.html em templates
     }
+    @GetMapping("/Deletar")
+    public String Deletar(Model model) {
+        model.addAttribute("mensagem", "Bem-vindo ao meu site!");
+        return "Pagina_Deletar"; // Vai buscar o arquivo index.html em templates
+    }
 }
